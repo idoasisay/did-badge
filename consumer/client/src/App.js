@@ -1,14 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-import Typography from '@mui/material/Typography';
+
+import React from 'react';
+
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
+// Header, Footer
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+// Pages
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className='App'>
-      <Typography variant='h1' gutterBottom>
-        h1. Heading
-      </Typography>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
