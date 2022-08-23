@@ -1,16 +1,6 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+import React, { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -19,9 +9,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../recoil/user';
 
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import CardModal from '../components/CardModal';
+import CardList from '../components/CardList';
+import CertificationBox from '../components/CertificationBox';
 
-import { isLoginUser, isValidUser } from '../utils/user';
+// import { isLoginUser, isValidUser } from '../utils/user';
 
 const cards = [
   '수료',
@@ -39,7 +32,14 @@ const theme = createTheme();
 
 export default function MainPage() {
   const user = useRecoilValue(userState);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [cardInfo, setCardInfo] = useState({});
+
+  const cardHandler = (c, e) => {
+    setModalOpen(true);
+    setCardInfo({ c });
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,31 +53,10 @@ export default function MainPage() {
           }}
         >
           <Container sx={{ py: 8 }} maxWidth='md'>
-            <Box
-              sx={{
-                borderRadius: '16px',
-                bgcolor: 'info.main',
-                width: '100%',
-                height: '100%',
-                p: 20,
-                mb: 10,
-              }}
-              direction='row'
-              spacing={2}
-              justifyContent='center'
-            >
-              <Typography
-                variant='h6'
-                align='center'
-                color='text.secondary'
-                paragraph
-              >
-                {!user.address && '임시'} 님 반갑습니다
-              </Typography>
-
-              <Button variant='outlined'>수료증 발급받기 </Button>
-            </Box>
-
+            <CertificationBox user={user} />
+            {modalOpen ? (
+              <CardModal setModalOpen={setModalOpen} cardInfo={cardInfo} />
+            ) : null}
             <Typography
               component='h1'
               variant='h2'
@@ -87,31 +66,7 @@ export default function MainPage() {
             >
               나의 뱃지
             </Typography>
-            {/* End hero unit */}
-            <Grid container spacing={4}>
-              {cards.map(card => (
-                <Grid item key={card} xs={5} sm={1} md={3}>
-                  <Card
-                    sx={{
-                      height: '100%',
-                      bgcolor: 'rgba( 255, 255, 255, 0.5 )',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <CardMedia
-                      component='img'
-                      image='gift_front.png'
-                      alt='random'
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Typography gutterBottom variant='h6' align='center'>
-                        {card}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
+            <CardList cards={cards} cardHandler={cardHandler} />
           </Container>
         </Box>
       </main>
