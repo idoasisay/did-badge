@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 
 import { userState } from '../recoil/user';
 import { useRecoilValue } from 'recoil';
-// import LogoutButton from './LogoutButton';
 
 import { isLoginUser } from '../utils/user';
+
+import LogoutBox from './LogoutBox';
 
 export default function Header() {
   const user = useRecoilValue(userState);
@@ -20,11 +21,7 @@ export default function Header() {
         </Link>
         <ul className='header_menu'>
           <li className='header_logout'>
-            {isLoginUser(user) ? (
-              <Link to='/' className='logoutButton'>
-                로그아웃
-              </Link>
-            ) : null}
+            {isLoginUser(user) ? <LogoutBox /> : null}
           </li>
         </ul>
       </div>
