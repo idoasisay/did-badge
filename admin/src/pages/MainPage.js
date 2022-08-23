@@ -1,6 +1,11 @@
 import React from 'react';
+import Dashboard from '../components/Dashboard';
 export default function MainPage() {
-  return <div>메인 페이지</div>;
+  return (
+    <div>
+      <Dashboard />
+    </div>
+  );
 }
 
 // 개발 중이라 잠시 turn off
