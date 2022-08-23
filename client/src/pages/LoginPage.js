@@ -85,7 +85,15 @@ export default function LoginPage() {
             alignItems: 'center',
           }}
         >
-          <Typography>Login</Typography>
+          <Typography
+            component='h1'
+            variant='h2'
+            align='center'
+            color='text.primary'
+            gutterBottom
+          >
+            Login
+          </Typography>
           <Box component='form' noValidate sx={{ mt: 1 }}>
             {open ? (
               <LoginQRcodeBox
