@@ -16,7 +16,7 @@ const rows = [
   createData(0, 'BEB', '이유정', 'true', '22/8/13', 3),
   createData(1, 'SEB', '김유정', 'true', '22/8/13', 8),
   createData(2, 'GMB', '박유정', 'true', '22/8/13', 1),
-  createData(3, 'PMB', '최유정', 'true', '22/8/13', 6),
+  createData(3, 'PMB', '최유정', 'false', '-', 6),
   createData(4, 'AIB', '당고유정', 'true', '22/8/13', 2),
 ];
 
@@ -42,7 +42,9 @@ export default function Orders() {
           {rows.map(row => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
+              <TableCell>
+                <Link href='#'>{row.name}</Link>
+              </TableCell>
               <TableCell>{row.shipTo}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
               <TableCell align='right'>{row.amount}</TableCell>
