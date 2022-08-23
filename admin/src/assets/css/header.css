@@ -1,0 +1,54 @@
+/* 헤더 */
+header {
+  margin: 0;
+  border-bottom: 1px solid #eaeaea;
+}
+header img {
+  width: 100px;
+}
+header .header_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 980px;
+  margin: auto;
+}
+header .header_container .header_logo {
+  display: block;
+  height: auto;
+  width: 140px;
+  margin: 11px;
+}
+ul.header_menu {
+  margin: 12px;
+  font-size: 15px;
+}
+ul.header_menu li {
+  display: inline-block;
+  margin: 0;
+  border-radius: 4px;
+  color: #455573;
+  cursor: pointer;
+}
+ul.header_menu li.header_certif {
+  padding: 7px 10px;
+  margin-right: 6px;
+}
+ul.header_menu li.header_certif:hover {
+  color: #262f40;
+  background-color: #f5f7f9;
+}
+ul.header_menu li.header_login {
+  padding: 6px 12px;
+  border: 1px solid #b2bdd1;
+}
+ul.header_menu li.header_login:hover {
+  border: 1px solid #8c9cba;
+  background-color: #f5f7f9;
+}
+
+.logoutButton {
+  color: #8c9cba;
+  text-decoration: none;
+  font-weight: 600;
+}
