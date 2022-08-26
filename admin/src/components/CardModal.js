@@ -24,10 +24,11 @@ export default function CardModal(props) {
     setModalOpen(false);
   };
 
-  const [category, setcategory] = React.useState('name');
-  const [formInput, setFormInput] = React.useState({ category: 'name' });
+  const [category, setcategory] = React.useState('carrercamp');
+  const [formInput, setFormInput] = React.useState({ category });
   const [value, setValue] = React.useState(dayjs('2021-11-18T21:11:54'));
   const handleChange = newValue => {
+    setFormInput({ ...formInput, date: newValue });
     setValue(newValue);
   };
 
@@ -42,7 +43,7 @@ export default function CardModal(props) {
   };
 
   const submitHandle = e => {
-    e.preventDefault();
+    // e.preventDefault();
     console.log(formInput);
     // 여기서 SERVE 처리
   };
@@ -89,32 +90,32 @@ export default function CardModal(props) {
               <RadioGroup
                 row
                 aria-labelledby='demo-row-radio-buttons-group-label'
-                name='bootcamp'
+                name='badge'
                 onChange={handleSumbit}
               >
                 {/* SEB, BEB, GMB, AIB, DOB, PMB */}
                 <FormControlLabel
-                  value='AIB'
+                  value='bronze'
                   control={<Radio size='small' />}
                   label='브론즈'
                 />
                 <FormControlLabel
-                  value='BEB'
+                  value='sliver'
                   control={<Radio size='small' />}
                   label='실버'
                 />
                 <FormControlLabel
-                  value='DOB'
+                  value='gold'
                   control={<Radio size='small' />}
                   label='골드'
                 />
                 <FormControlLabel
-                  value='SEB'
+                  value='dia'
                   control={<Radio size='small' />}
                   label='다이아'
                 />
                 <FormControlLabel
-                  value='PMB'
+                  value='platinum'
                   control={<Radio size='small' />}
                   label='플래티넘'
                 />
@@ -126,12 +127,12 @@ export default function CardModal(props) {
                   value={category}
                   onChange={handleCategory}
                 >
-                  <MenuItem value={'name'}>커리어캠프</MenuItem>
-                  <MenuItem value={'email'}>멘토링</MenuItem>
-                  <MenuItem value={'githubID'}>기타1</MenuItem>
-                  <MenuItem value={'githubI'}>기타2</MenuItem>
-                  <MenuItem value={'github'}>기타3</MenuItem>
-                  <MenuItem value={'githu'}>기타4</MenuItem>
+                  <MenuItem value={'carrercamp'}>커리어캠프</MenuItem>
+                  <MenuItem value={'mentoring'}>멘토링</MenuItem>
+                  <MenuItem value={'g1'}>기타1</MenuItem>
+                  <MenuItem value={'g2'}>기타2</MenuItem>
+                  <MenuItem value={'g3'}>기타3</MenuItem>
+                  <MenuItem value={'g4'}>기타4</MenuItem>
                 </Select>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DesktopDatePicker
@@ -150,6 +151,7 @@ export default function CardModal(props) {
                 multiline
                 rows={4}
                 defaultValue='없음'
+                name='memo'
               />
               <Typography>저장하게 되면 뱃지를 발행합니다!</Typography>
               <Button type='submit'>저장</Button>
