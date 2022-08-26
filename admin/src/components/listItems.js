@@ -12,15 +12,9 @@ export const mainListItems = (
   <React.Fragment>
     <ListItemButton>
       <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary='대시보드' />
-    </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary='사용자 검색' />
+      <ListItemText primary='사용자' />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>

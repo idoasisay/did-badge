@@ -1,10 +1,22 @@
 import React from 'react';
 import Dashboard from '../components/Dashboard';
+import Leftbar from '../components/Leftbar';
+
+// MUI
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CssBaseline, Box } from '@mui/material';
+
+const mdTheme = createTheme();
+
 export default function MainPage() {
   return (
-    <div>
-      <Dashboard />
-    </div>
+    <ThemeProvider theme={mdTheme}>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <Leftbar />
+        <Dashboard />
+      </Box>
+    </ThemeProvider>
   );
 }
 

@@ -5,7 +5,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Title from './Title';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -13,11 +12,11 @@ function createData(id, date, name, shipTo, paymentMethod, amount) {
 }
 
 const rows = [
-  createData(0, 'BEB', '이유정', 'true', '22/8/13', 3),
-  createData(1, 'SEB', '김유정', 'true', '22/8/13', 8),
-  createData(2, 'GMB', '박유정', 'true', '22/8/13', 1),
-  createData(3, 'PMB', '최유정', 'false', '-', 6),
-  createData(4, 'AIB', '당고유정', 'true', '22/8/13', 2),
+  createData(0, 'BEB', '이유정', 20, 'true', 3),
+  createData(1, 'SEB', '김유정', 40, 'true', 8),
+  createData(2, 'GMB', '박유정', 50, 'true', 1),
+  createData(3, 'PMB', '최유정', 2, 'false', 6),
+  createData(4, 'AIB', '당고유정', 34, 'true', 2),
 ];
 
 function preventDefault(event) {
@@ -27,14 +26,13 @@ function preventDefault(event) {
 export default function Orders() {
   return (
     <React.Fragment>
-      <Title>대시보드</Title>
       <Table size='small'>
         <TableHead>
           <TableRow>
             <TableCell>부트캠프 명</TableCell>
             <TableCell>이름</TableCell>
-            <TableCell>수료</TableCell>
-            <TableCell>수료 날짜 </TableCell>
+            <TableCell>수료 기수</TableCell>
+            <TableCell>수료증</TableCell>
             <TableCell align='right'>뱃지</TableCell>
           </TableRow>
         </TableHead>
@@ -43,7 +41,7 @@ export default function Orders() {
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>
-                <Link href='#'>{row.name}</Link>
+                <Link href='/user/1'>{row.name}</Link>
               </TableCell>
               <TableCell>{row.shipTo}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
