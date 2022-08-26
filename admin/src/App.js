@@ -11,7 +11,6 @@ import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
 import NotFound from './pages/NotFound';
 import UserPage from './pages/UserPage';
-import Leftbar from './components/Leftbar';
 
 function App() {
   return (

@@ -4,7 +4,6 @@ import {
   Button,
   FormControl,
   FormControlLabel,
-  FormGroup,
   FormLabel,
   MenuItem,
   Radio,
