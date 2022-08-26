@@ -57,15 +57,30 @@ export default function CardModal(props) {
           top: 'calc(50vh - 300px)',
           left: 'calc(50vw - 390px)',
           display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           flexDirection: 'column',
           borderRadius: '10px',
           border: 0.2,
         }}
       >
+        <Button
+          type='button'
+          variant='contained'
+          sx={{ mt: 1, mb: 1, position: 'relative', left: 400, top: -70 }}
+          onClick={closeBtnHandler}
+        >
+          x
+        </Button>
         <Box sx={{ minWidth: 120 }}>
           <form onSubmit={submitHandle}>
             <FormControl
-              sx={{ m: 1, minWidth: 120, display: 'flex' }}
+              sx={{
+                m: 1,
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
               size='small'
             >
               <FormLabel id='demo-row-radio-buttons-group-label'>
@@ -104,7 +119,7 @@ export default function CardModal(props) {
                   label='플래티넘'
                 />
               </RadioGroup>
-              <Box>
+              <Box sx={{ display: 'flex' }}>
                 <Select
                   labelId='demo-select-small'
                   id='demo-select-small'
@@ -126,27 +141,20 @@ export default function CardModal(props) {
                     renderInput={params => <TextField {...params} />}
                   />
                 </LocalizationProvider>
-                <TextField
-                  id='outlined-multiline-static'
-                  label='비고'
-                  multiline
-                  rows={4}
-                  defaultValue='없음'
-                />
-
-                <Button type='submit'>저장</Button>
-                <Typography>저장하게 되면 뱃지를 발행합니다!</Typography>
               </Box>
+              <FormLabel id='demo-row-radio-buttons-group-label'>
+                비고
+              </FormLabel>
+              <TextField
+                id='outlined-multiline-static'
+                multiline
+                rows={4}
+                defaultValue='없음'
+              />
+              <Typography>저장하게 되면 뱃지를 발행합니다!</Typography>
+              <Button type='submit'>저장</Button>
             </FormControl>
           </form>
-          <Button
-            type='button'
-            variant='contained'
-            sx={{ mt: 3, mb: 2 }}
-            onClick={closeBtnHandler}
-          >
-            닫기
-          </Button>
         </Box>
       </Box>
     </Box>
