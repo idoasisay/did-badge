@@ -5,16 +5,22 @@ import Leftbar from '../components/Leftbar';
 // MUI
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Box } from '@mui/material';
+import UserPage from './UserPage';
 
 const mdTheme = createTheme();
 
 export default function MainPage() {
+  console.log(window.location.href);
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <Leftbar />
-        <Dashboard />
+        {window.location.href !== 'http://localhost:3000/' ? (
+          <UserPage />
+        ) : (
+          <Dashboard />
+        )}
       </Box>
     </ThemeProvider>
   );

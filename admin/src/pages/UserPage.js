@@ -5,7 +5,14 @@ import DataTable from '../components/DataTable';
 
 export default function UserPage() {
   return (
-    <Box>
+    <Box
+      sx={{
+        margin: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+      }}
+    >
       <UserTable />
       <DataTable />
     </Box>
